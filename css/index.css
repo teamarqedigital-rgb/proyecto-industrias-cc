@@ -1,0 +1,66 @@
+/* ==========================================================
+   INICIO: detalles del diseño (usa los tokens :root de styles.css)
+   ========================================================== */
+
+/* ---------- Íconos de beneficios: trazo uniforme ---------- */
+.benefit__icon { stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Tarjetas de categoría: ícono sobre el título ---------- */
+.card__icon {
+  width: 26px; height: 26px; margin-bottom: .5rem;
+  fill: none; stroke: #fff; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.card__title { margin-bottom: .1rem; }
+.card:hover .card__go { transform: translateX(3px); }
+.card__go { transition: transform var(--t-fast) var(--ease); }
+
+/* ---------- Historia: valores con ícono ---------- */
+.story { position: relative; overflow: hidden; }
+.story__grid { position: relative; z-index: 1; }
+.story__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: .5rem; }
+.story__more { color: rgb(255 255 255 / .76); font-size: var(--fs-xs); text-decoration: underline; text-decoration-color: rgb(255 31 142 / .65); text-underline-offset: 4px; transition: color var(--t-fast); }
+.story__more:hover,
+.story__more:focus-visible { color: var(--color-primary); }
+
+.story__value { display: flex; align-items: center; gap: var(--space-2); }
+.story__icon {
+  flex: none; display: grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--color-bg-dark-2);
+  border: 1px solid var(--color-border);
+}
+.story__icon svg {
+  width: 22px; height: 22px;
+  fill: none; stroke: var(--color-primary); stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.story__value strong { display: block; font-size: var(--fs-sm); }
+.story__value span:not(.story__icon) { font-size: var(--fs-xs); color: var(--color-text-muted); }
+
+/* Frase manuscrita en blanco, como en el diseño */
+.story__script { color: var(--color-text-light); max-width: 14ch; text-align: right; line-height: 1.1; }
+
+/* ---------- Franja diagonal rosada de la esquina ---------- */
+.story::before,
+.story::after {
+  content: ""; position: absolute; right: 0; bottom: 0; pointer-events: none;
+  background: var(--color-primary);
+}
+.story::after {                       /* triángulo sólido */
+  width: 180px; height: 180px;
+  clip-path: polygon(100% 28%, 100% 100%, 28% 100%);
+}
+.story::before {                      /* línea fina paralela */
+  width: 240px; height: 240px; opacity: .6;
+  clip-path: polygon(100% 20%, 100% 23%, 23% 100%, 20% 100%);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .story__script { justify-self: start; text-align: left; max-width: none; }
+}
+@media (max-width: 600px) {
+  .story::after { width: 110px; height: 110px; }
+  .story::before { display: none; }
+}

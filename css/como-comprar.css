@@ -1,0 +1,82 @@
+/* ==========================================================
+   CÓMO COMPRAR (usa los tokens :root de styles.css)
+   ========================================================== */
+
+/* ---------- Pasos ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  position: relative;
+}
+.step {
+  position: relative;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgb(0 0 0 / .06);
+  transition: transform var(--t-base) var(--ease);
+}
+.step:hover { transform: translateY(-6px); }
+
+.step__n {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; margin-bottom: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-primary); color: #fff;
+  font-weight: 700; font-size: var(--fs-lg);
+  box-shadow: var(--shadow-glow);
+}
+.step h3 { margin-bottom: .4rem; font-size: var(--fs-md); }
+.step p { font-size: var(--fs-sm); color: var(--color-text-muted); }
+
+/* Línea que conecta los pasos (solo escritorio) */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-4) + 23px);
+  left: calc(var(--space-3) + 46px + 10px);
+  right: calc(-1 * var(--space-3) + 10px);
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--color-primary) 0 6px, transparent 6px 12px);
+  opacity: .5;
+}
+
+/* ---------- Qué necesitamos ---------- */
+.need__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.need__text { display: grid; gap: var(--space-2); }
+.need__text p:not(.eyebrow) { color: rgb(255 255 255 / .8); font-size: var(--fs-sm); }
+
+.checklist { display: grid; gap: var(--space-2); }
+.checklist li {
+  position: relative;
+  padding: var(--space-2) var(--space-3) var(--space-2) 3.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.checklist li::before {
+  content: "✓";
+  position: absolute; left: var(--space-2); top: 50%; transform: translateY(-50%);
+  display: grid; place-items: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--color-primary); color: #fff; font-size: var(--fs-xs); font-weight: 700;
+}
+.checklist li:hover { border-color: var(--color-primary); background: rgb(255 31 142 / .08); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .step::after { display: none; }
+  .need__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+@media (max-width: 600px) {
+  .steps { grid-template-columns: 1fr; }
+}

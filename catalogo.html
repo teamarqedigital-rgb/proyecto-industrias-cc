@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Industrias CC</title>
+  <meta name="description" content="Buzos, chaquetas, estampados, regalos personalizados, dotaciones y juegos didácticos. Cotiza por WhatsApp.">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/catalogo.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main id="contenido">
+
+    <!-- BANNER -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="index.html">Inicio</a> <span aria-hidden="true">/</span> <span>Catálogo</span>
+        </nav>
+        <p class="eyebrow eyebrow--spaced">Explora nuestros</p>
+        <h1 class="page-hero__title">Catálogo de <span class="accent">productos</span></h1>
+        <p class="page-hero__intro">Diseños hechos con dedicación para regalar, vestir y llevar tus ideas a todas partes.</p>
+      </div>
+    </section>
+
+    <!-- LISTADO -->
+    <section class="section section--light">
+      <div class="container">
+
+        <div class="toolbar">
+          <div class="filters" id="filtros" role="group" aria-label="Filtrar por categoría">
+            <button class="chip is-active" type="button" data-cat="todos" aria-pressed="true">Todos</button>
+            <button class="chip" type="button" data-cat="vestuario" aria-pressed="false">Vestuario y estampados</button>
+            <button class="chip" type="button" data-cat="regalos" aria-pressed="false">Regalos</button>
+            <button class="chip" type="button" data-cat="empresas" aria-pressed="false">Empresas y dotaciones</button>
+            <button class="chip" type="button" data-cat="eventos" aria-pressed="false">Eventos</button>
+            <button class="chip" type="button" data-cat="juegos" aria-pressed="false">Juegos didácticos</button>
+          </div>
+
+          <label class="search" for="buscador">
+            <span class="sr-only">Buscar producto</span>
+            <input id="buscador" type="search" placeholder="Buscar producto…" autocomplete="off">
+          </label>
+        </div>
+
+        <p class="results-count" id="contador" aria-live="polite"></p>
+        <p class="catalog-status" id="catalogo-estado" role="status" aria-live="polite"></p>
+
+        <ul class="products" id="productos-grid" aria-live="polite"></ul>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container cta__inner">
+        <h2 class="cta__title">¿No encuentras lo que buscas? <span class="accent">Lo diseñamos para ti.</span></h2>
+        <a class="btn btn--primary" href="https://wa.me/573214720350" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+</body>
+</html>

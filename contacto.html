@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | Industrias CC</title>
+  <meta name="description" content="Escríbenos por WhatsApp al 321 472 0350 o visítanos en Tundama. Cotiza tus buzos, chaquetas y estampados personalizados.">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="index.html">Inicio</a> <span aria-hidden="true">/</span> <span>Contacto</span></nav>
+        <p class="eyebrow eyebrow--spaced">Hablemos</p>
+        <h1 class="page-hero__title">Estamos para <span class="accent">ayudarte</span></h1>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container contact__grid">
+
+        <ul class="contact__list">
+          <li><a class="contact__item" href="https://wa.me/573214720350" target="_blank" rel="noopener">
+            <span class="contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+            <span><strong>WhatsApp</strong><small>321 472 0350</small></span></a></li>
+          <li><span class="contact__item">
+            <span class="contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></span>
+            <span><strong>Instagram</strong><small>@Industrias CC</small></span></span></li>
+          <li><a class="contact__item" href="mailto:industriascc1@gmail.com">
+            <span class="contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+            <span><strong>Correo</strong><small>industriascc1@gmail.com</small></span></a></li>
+          <li><span class="contact__item">
+            <span class="contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span><strong>Dirección</strong><small>Tundama, casa 243, piso 1</small></span></span></li>
+        </ul>
+
+        <form class="contact__form" id="form-contacto" novalidate>
+          <h2>Cuéntanos tu idea</h2>
+          <p>Completa los datos y se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+          <label>Nombre<input name="nombre" required autocomplete="name" autocapitalize="words" maxlength="80" aria-describedby="form-error"></label>
+          <label>¿Qué necesitas?
+            <select name="producto">
+              <option>Buzos</option><option>Chaquetas</option><option>Estampados</option>
+              <option>Regalos personalizados</option><option>Dotaciones para empresa</option>
+              <option>Eventos y recordatorios</option><option>Juegos didácticos</option><option>Otro</option>
+            </select>
+          </label>
+          <label>Mensaje<textarea name="mensaje" rows="4" maxlength="500" placeholder="Cantidad, colores, tallas, fecha…"></textarea></label>
+          <button class="btn btn--primary" type="submit">Enviar por WhatsApp</button>
+          <p class="contact__error" id="form-error" role="alert" hidden>Escribe tu nombre para continuar.</p>
+        </form>
+
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container">
+        <img class="contact__card" src="assets/img/tarjeta-contacto.jpg" alt="Tarjeta de presentación de Industrias CC con WhatsApp, correo, Instagram y dirección" width="2416" height="864" loading="lazy">
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/contacto.js" defer></script>
+</body>
+</html>

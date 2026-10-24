@@ -1,0 +1,89 @@
+/* ==========================================================
+   PREGUNTAS FRECUENTES (usa los tokens :root de styles.css)
+   ========================================================== */
+
+.faq__layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.faq__groups { display: grid; gap: var(--space-4); }
+.faq__group { display: grid; gap: var(--space-1); }
+
+.faq__group-title {
+  display: flex; align-items: center; gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-lg);
+  color: var(--color-text);
+}
+.faq__group-title::before {
+  content: ""; width: 24px; height: 2px; background: var(--color-primary);
+}
+
+/* ---------- Pregunta (details) ---------- */
+.faq__item {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.faq__item:hover { border-color: var(--color-primary); }
+.faq__item[open] {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgb(0 0 0 / .08);
+}
+
+.faq__item summary {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;                 /* quita el triángulo en Firefox/Chrome */
+}
+.faq__item summary::-webkit-details-marker { display: none; }  /* Safari */
+
+/* Ícono + / − */
+.faq__item summary::after {
+  content: "+";
+  flex: none;
+  display: grid; place-items: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgb(255 31 142 / .1);
+  color: var(--color-primary);
+  font-size: 1.3rem; line-height: 1;
+  transition: transform var(--t-fast), background var(--t-fast), color var(--t-fast);
+}
+.faq__item[open] summary::after {
+  content: "−";
+  background: var(--color-primary); color: #fff;
+}
+
+.faq__item p {
+  padding: 0 var(--space-3) var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Tarjeta lateral ---------- */
+.faq__aside {
+  position: sticky; top: calc(var(--header-h) + var(--space-3));
+  display: grid; gap: var(--space-2); justify-items: start;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 90% 0%, var(--color-primary-glow), transparent 55%),
+    var(--color-bg-dark);
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-card);
+}
+.faq__aside h2 { font-size: var(--fs-lg); line-height: var(--lh-tight); }
+.faq__aside p { font-size: var(--fs-sm); color: rgb(255 255 255 / .8); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .faq__layout { grid-template-columns: 1fr; gap: var(--space-4); }
+  .faq__aside { position: static; }
+}
