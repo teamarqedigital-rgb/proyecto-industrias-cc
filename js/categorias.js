@@ -76,8 +76,9 @@ const normalizar = (d) => {
   return {
     ...base,
     ...d,
+    nombre: base.nombre || d.nombre,
     imagen: resolverImagen(base.imagen) || resolverImagen(d.imagen) || IMG_LOGO,
-    enlace: resolverEnlace(d.enlace, base.enlace)
+    enlace: base.enlace || resolverEnlace(d.enlace, "catalogo.html")
   };
 };
 
@@ -111,7 +112,11 @@ async function cargar() {
     );
     const snap = await getDocs(query(collection(db, "categorias"), orderBy("orden")));
     const data = snap.docs.map((d) => normalizar(d.data()));
-    render(data.length ? data : FALLBACK);
+    const nombresPresentes = new Set(data.map((categoria) => normalizarNombre(categoria.nombre)));
+    const faltantes = FALLBACK.filter(
+      (categoria) => !nombresPresentes.has(normalizarNombre(categoria.nombre))
+    );
+    render([...data, ...faltantes]);
   } catch (err) {
     console.error("Firestore (categorias):", err);
   }
