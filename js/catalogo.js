@@ -29,10 +29,10 @@ const PRODUCTOS_BASE = [
   { orden: 12, categoria: "regalos", nombre: "Mug Goku negro",  descripcion: "Mug negro sublimado con diseño de Goku.",    imagen: "assets/img/mug-goku-negro.jpg" },
 
   /* Ejemplos de categorías disponibles bajo cotización */
-  { orden: 13, categoria: "empresas", nombre: "Dotaciones industriales", descripcion: "Uniformes y prendas de alta visibilidad para equipos de trabajo. Imagen de inspiración; materiales, marcación y cantidades se cotizan según tu necesidad.", imagen: "https://images.unsplash.com/photo-1652303518379-c0ef1c9fb2b1?auto=format&fit=crop&w=900&q=85" },
-  { orden: 14, categoria: "eventos", nombre: "Charlas de seguridad industrial", descripcion: "Ideas para identificar y acompañar jornadas de capacitación en seguridad industrial. Imagen de inspiración; personaliza prendas y detalles para tu equipo.", imagen: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=85" },
-  { orden: 15, categoria: "eventos", nombre: "Recordatorios personalizados", descripcion: "Detalles para celebraciones, capacitaciones y fechas especiales. Imagen de inspiración; personaliza el diseño y cotiza tu pedido.", imagen: "https://images.unsplash.com/photo-1521478706270-f2e33c203d95?auto=format&fit=crop&w=900&q=85" },
-  { orden: 16, categoria: "juegos", nombre: "Juegos didácticos personalizados", descripcion: "Ideas de juegos para aprender jugando. Imagen de inspiración; consulta opciones y cotiza un diseño a tu medida.", imagen: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=900&q=85" }
+  { orden: 13, categoria: "empresas", nombre: "Dotaciones industriales", descripcion: "Uniformes y prendas de alta visibilidad para equipos de trabajo. Materiales, marcación y cantidades se cotizan según tu necesidad.", imagen: "https://images.unsplash.com/photo-1652303518379-c0ef1c9fb2b1?auto=format&fit=crop&w=900&q=85" },
+  { orden: 14, categoria: "eventos", nombre: "Charlas de seguridad industrial", descripcion: "Prendas y detalles personalizados para jornadas de capacitación en seguridad industrial. Consulta opciones para tu equipo.", imagen: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=85" },
+  { orden: 15, categoria: "eventos", nombre: "Recordatorios personalizados", descripcion: "Detalles para celebraciones, capacitaciones y fechas especiales. Personaliza el diseño y cotiza tu pedido.", imagen: "https://images.unsplash.com/photo-1521478706270-f2e33c203d95?auto=format&fit=crop&w=900&q=85" },
+  { orden: 16, categoria: "juegos", nombre: "Juegos didácticos personalizados", descripcion: "Juegos personalizados para aprender jugando. Consulta opciones y cotiza un diseño a tu medida.", imagen: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=900&q=85" }
 ];
 
 const ETIQUETAS = {
