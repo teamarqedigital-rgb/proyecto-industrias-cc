@@ -26,7 +26,12 @@ const PRODUCTOS_BASE = [
 
   /* Regalos: mugs */
   { orden: 11, categoria: "regalos", nombre: "Mug Dragon Ball", descripcion: "Mug sublimado con diseño de Broly y Goku.", imagen: "assets/img/mug-dragonball-broly.jpg" },
-  { orden: 12, categoria: "regalos", nombre: "Mug Goku negro",  descripcion: "Mug negro sublimado con diseño de Goku.",    imagen: "assets/img/mug-goku-negro.jpg" }
+  { orden: 12, categoria: "regalos", nombre: "Mug Goku negro",  descripcion: "Mug negro sublimado con diseño de Goku.",    imagen: "assets/img/mug-goku-negro.jpg" },
+
+  /* Ejemplos de categorías disponibles bajo cotización */
+  { orden: 13, categoria: "empresas", nombre: "Ideas para kits corporativos", descripcion: "Kits y detalles de marca para empresas. Imagen de inspiración; opciones y precio se cotizan según tu necesidad.", imagen: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85" },
+  { orden: 14, categoria: "eventos", nombre: "Recordatorios para eventos", descripcion: "Ideas para cumpleaños, grados y celebraciones. Imagen de inspiración; personaliza el diseño y cotiza tu pedido.", imagen: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85" },
+  { orden: 15, categoria: "juegos", nombre: "Juegos didácticos personalizados", descripcion: "Ideas de juegos para aprender jugando. Imagen de inspiración; consulta opciones y cotiza un diseño a tu medida.", imagen: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=900&q=85" }
 ];
 
 const ETIQUETAS = {
@@ -36,7 +41,23 @@ const ETIQUETAS = {
   eventos:   "Eventos",
   juegos:    "Juegos didácticos"
 };
-const etiqueta = (c) => ETIQUETAS[c] || c || "";
+const CATEGORIAS_EQUIVALENTES = {
+  "vestuario y estampado": "vestuario",
+  "vestuario y estampados": "vestuario",
+  "regalos personalizados": "regalos",
+  "empresas y dotaciones": "empresas",
+  "eventos y recordatorios": "eventos",
+  "juegos didacticos": "juegos"
+};
+const normalizarCategoria = (categoria) => {
+  const valor = String(categoria || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase();
+  return CATEGORIAS_EQUIVALENTES[valor] || valor;
+};
+const etiqueta = (c) => ETIQUETAS[normalizarCategoria(c)] || c || "";
 
 let productos = PRODUCTOS_BASE;
 let visibles = [];            // lista que se ve ahora (según filtro y búsqueda)
@@ -109,7 +130,7 @@ function render() {
   visibles = productos.filter((p) => {
     const nombre = String(p.nombre || "");
     const descripcion = String(p.descripcion || "");
-    const categoria = String(p.categoria || "").toLowerCase();
+    const categoria = normalizarCategoria(p.categoria);
     const okCat = categoriaActual === "todos" || categoria === categoriaActual;
     const okTxt = `${nombre} ${descripcion}`.toLowerCase().includes(texto);
     return okCat && okTxt;
@@ -206,7 +227,14 @@ async function cargar() {
       .map((d) => ({ id: d.id, ...d.data() }))
       .sort((a, b) => (Number(a.orden) || 999) - (Number(b.orden) || 999));
     if (data.length) {
-      productos = data;
+      const categoriasDisponibles = new Set(
+        data.map((producto) => normalizarCategoria(producto.categoria))
+      );
+      const ejemplosSinProducto = PRODUCTOS_BASE.filter(
+        (producto) => ["empresas", "eventos", "juegos"].includes(producto.categoria)
+          && !categoriasDisponibles.has(normalizarCategoria(producto.categoria))
+      );
+      productos = [...data, ...ejemplosSinProducto];
       render();
     }
   } catch (err) {
